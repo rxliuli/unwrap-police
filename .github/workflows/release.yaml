@@ -45,7 +45,7 @@ jobs:
         run: pnpm install && pnpm i -g @vscode/vsce
       - name: Zip extensions
         run: |
-          vsce package --no-dependencies
+          pnpm build && vsce package --no-dependencies
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
