@@ -1,6 +1,6 @@
 {
   "name": "unwrap-police",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "displayName": "Unwrap Police",
   "description": "Catching unwraps before they catch you",

@@ -31,6 +31,7 @@ jobs:
     needs: version
     if: ${{ needs.version.outputs.changed == 'true' }}
     runs-on: ubuntu-latest
+    environment: Release
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v3
@@ -46,6 +47,13 @@ jobs:
       - name: Zip extensions
         run: |
           pnpm build && vsce package --no-dependencies
+
+      - name: Publish to Visual Studio Marketplace
+        uses: HaaLeo/publish-vscode-extension@v1
+        with:
+          pat: ${{ secrets.VSCE_TOKEN }}
+          registryUrl: https://marketplace.visualstudio.com
+          extensionFile: ${{env.PROJECT_NAME}}-${{ needs.version.outputs.version }}.vsix
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
