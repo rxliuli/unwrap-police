@@ -1,13 +1,19 @@
 {
   "name": "unwrap-police",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "type": "module",
   "displayName": "Unwrap Police",
   "description": "Catching unwraps before they catch you",
   "publisher": "rxliuli",
+  "icon": "public/icon.png",
   "engines": {
     "vscode": "^1.105.0"
   },
+  "files": [
+    "dist",
+    "public",
+    "LICENSE"
+  ],
   "categories": [
     "Linters",
     "Other"
